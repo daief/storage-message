@@ -12,7 +12,8 @@
     "precompile": "rimraf ./lib ./types",
     "compile": "tsc",
     "predist": "rimraf ./dist",
-    "dist": "rollup -c"
+    "dist": "rollup -c",
+    "prepublishOnly": "yarn compile && yarn dist"
   },
   "dependencies": {},
   "devDependencies": {
@@ -22,5 +23,8 @@
     "rollup-plugin-typescript": "^1.0.0",
     "tslib": "^1.9.3",
     "typescript": "^2.9"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
