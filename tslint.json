@@ -7,9 +7,10 @@
     "no-implicit-dependencies": false,
     "no-unused-expression": false,
     "quotemark": [true, "single", "jsx-double"],
-    "semicolon": [true, "never"],
+    "semicolon": [true, "always"],
     "ordered-imports": false,
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "member-access": false
   },
   "rulesDirectory": []
 }
