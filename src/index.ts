@@ -16,6 +16,7 @@ function overrideSetItem() {
       key,
       oldValue,
       newValue: value,
+      url: window.location.href,
     });
 
     window.dispatchEvent(setItemEvent);
