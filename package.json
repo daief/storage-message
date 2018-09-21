@@ -9,18 +9,20 @@
     "lib"
   ],
   "scripts": {
+    "start": "cross-env NODE_ENV=development",
     "precompile": "rimraf ./lib ./types",
     "compile": "tsc",
     "predist": "rimraf ./dist",
-    "dist": "rollup -c",
-    "prepublishOnly": "yarn compile && yarn dist"
+    "dist": "cross-env NODE_ENV=production rollup -c",
+    "prepublishOnly": "cross-env NODE_ENV=production yarn compile && yarn dist"
   },
   "dependencies": {},
   "devDependencies": {
     "@types/node": "*",
-    "rimraf": "^2.6.2",
+    "cross-env": "^5.2.0",
     "rollup": "^0.66.1",
     "rollup-plugin-typescript": "^1.0.0",
+    "rimraf": "^2.6.2",
     "tslib": "^1.9.3",
     "typescript": "^2.9"
   },
