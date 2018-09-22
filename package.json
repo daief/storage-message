@@ -11,7 +11,8 @@
     "compile": "tsc",
     "predist": "rimraf ./dist",
     "dist": "cross-env NODE_ENV=production rollup -c",
-    "prepublishOnly": "cross-env NODE_ENV=production yarn compile && yarn dist"
+    "prepublishOnly": "cross-env NODE_ENV=production yarn compile && yarn dist",
+    "test": "karma start"
   },
   "dependencies": {},
   "devDependencies": {
