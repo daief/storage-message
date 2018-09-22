@@ -1,5 +1,5 @@
 # storage-message
-基于`window.localStorage`简单封装后进行消息传递的模块，适用于同一页面之间、跨 tab 页面、移动端不同 webview 页面之间的消息传递，前提是**不可跨域、支持`window.localStorage`**。
+基于`window.localStorage`简单封装后进行消息传递的模块，适用于同一页面、跨 tab 页面、移动端不同 webview 页面之间的消息传递，前提是**不可跨域、支持`window.localStorage`**。
 
 ## install
 ```bash
