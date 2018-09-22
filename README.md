@@ -13,6 +13,8 @@ yarn add storage-message
 ```
 
 ## usage
+
+es module:
 ```js
 // page 1
 import {storageMessage} from 'storage-message'
@@ -35,9 +37,18 @@ import {storageMessage} from 'storage-message'
 storageMessage.trigger(KEY, 'data from page 2')
 ```
 
-global
+global:
 ```js
 const {storageMessage} = window.StorageMessage
 ```
 
 ## example
+```bash
+$ git clone git@github.com:daief/storage-message.git
+
+$ cd storage-message && yarn && yarn start
+```
+
+open http://localhost:10001/example/page1.html  & http://localhost:10001/example/page2.html
+
+![](./example/preview.gif)

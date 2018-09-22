@@ -1533,6 +1533,10 @@ mime-types@~2.1.18:
   dependencies:
     mime-db "~1.36.0"
 
+mime@^1.3.6:
+  version "1.6.0"
+  resolved "http://registry.npm.taobao.org/mime/download/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
+
 mime@^2.3.1:
   version "2.3.1"
   resolved "http://registry.npm.taobao.org/mime/download/mime-2.3.1.tgz#b1621c54d63b97c47d3cfe7f7215f7d64517c369"
@@ -1760,6 +1764,10 @@ once@^1.3.0:
 onetime@^1.0.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/onetime/download/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
+
+opener@^1.4.3:
+  version "1.5.1"
+  resolved "http://registry.npm.taobao.org/opener/download/opener-1.5.1.tgz#6d2f0e77f1a0af0032aca716c2c1fbb8e7e8abed"
 
 optimist@^0.6.1:
   version "0.6.1"
@@ -2043,6 +2051,13 @@ rimraf@^2.6.0, rimraf@^2.6.1, rimraf@^2.6.2:
   resolved "http://registry.npm.taobao.org/rimraf/download/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:
     glob "^7.0.5"
+
+rollup-plugin-serve@^0.6.0:
+  version "0.6.0"
+  resolved "http://registry.npm.taobao.org/rollup-plugin-serve/download/rollup-plugin-serve-0.6.0.tgz#5243111999ffde4269434e2af69e4b032b4fdefb"
+  dependencies:
+    mime "^1.3.6"
+    opener "^1.4.3"
 
 rollup-plugin-typescript@^1.0.0:
   version "1.0.0"

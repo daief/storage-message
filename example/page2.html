@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>page 2</title>
+</head>
+<body>
+  <h1>page 2</h1>
+  color: <input type="text" value="red" id="input">
+  <br />
+  <button id="btn">send</button>
+  <script src="../dist/bundle.js"></script>
+  <script>
+    var storageMessage = StorageMessage.storageMessage
+    var input = document.getElementById('input')
+
+    document.getElementById('btn').addEventListener('click', function() {
+      storageMessage.trigger('color', input.value.trim())
+    })
+  </script>
+</body>
+</html>
