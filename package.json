@@ -49,7 +49,7 @@
       "*.less": ["prettier --parser less --write", "git add"],
       "*.json": ["prettier --parser json --write", "git add"],
       "*.{js,jsx}": [
-        "prettier --print-width 100 --tab-width 2 semi true --single-quote true --trailing-comma es5 --no-bracket-spacing false --arrow-parens always --parser babylon --write",
+        "prettier --print-width 100 --tab-width 2 semi true --single-quote true --trailing-comma es5 bracket-spacing true --arrow-parens always --parser babylon --write",
         "git add"
       ],
       "*.ts": [

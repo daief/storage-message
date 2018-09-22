@@ -14,8 +14,8 @@ module.exports = function(config) {
     files: [
       'node_modules/requirejs/require.js',
       'node_modules/karma-requirejs/lib/adapter.js',
-      {pattern: 'dist/**/*.js', included: false},
-      {pattern: 'test/**/*.js', included: false},
+      { pattern: 'dist/**/*.js', included: false },
+      { pattern: 'test/**/*.js', included: false },
       'test-main.js',
     ],
 
