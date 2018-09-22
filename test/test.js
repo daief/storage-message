@@ -1,44 +1,45 @@
-define(['storage-message'], (storageMessage) => {
+define(['storage-message'], (storageMessageLib) => {
+  const { storageMessage } = storageMessageLib;
   describe('#storage-message', () => {
     beforeEach(() => {
+      storageMessage.events = [];
       window.localStorage.clear();
     });
 
-    it('test localStorage', (done) => {
-      console.log(123);
+    it('localStorage', (done) => {
       window.localStorage.setItem('test', 'test');
       expect(window.localStorage.getItem('test')).toBe('test');
       done();
     });
 
-    it('test', (done) => {
-      // expect(1).to.equal(1);
-      expect(1).toBe(1);
+    it('storageMessage addEventListener & removeEventListener', (done) => {
+      const l = () => {};
+      storageMessage.addEventListener('test', l);
+      expect(storageMessage.events.length).toBe(1);
+
+      const event = storageMessage.events[0];
+
+      expect(event.key).toBe('test');
+      expect(event.listener).toBe(l);
+
+      storageMessage.removeEventListener('test', l);
+      expect(storageMessage.events.length).toBe(0);
       done();
     });
 
-    // it('test localStorage storage', (done) => {
-    //   window.localStorage.setItem('test', 'test')
-    //   window.addEventListener('storage', (e) => {
-    //     console.log(e)
-    //     expect(e).not.to.be.null
-    //     done()
-    //   })
-    // })
+    const sendMsg = `message ${Math.random()}`;
+    it(`key: watch1; data: msg: ${sendMsg}`, (done) => {
+      storageMessage.addEventListener('watch1', (e) => {
+        const { key, oldValue, newValue } = e;
+        const obj = JSON.parse(newValue);
+        expect(key).toBe('watch1');
+        expect(oldValue).toBe.null;
+        expect(obj.data).toBe(sendMsg);
+        expect(obj.timestap).toEqual(jasmine.any(Number));
+        done();
+      });
 
-    // it('addEventListener: watch1, send msg: data1', done => {
-    //   storageMessage.addEventListener('watch1', (e) => {
-    //     const {key, oldValue, newValue} = e
-    //     const obj = JSON.parse(newValue)
-    //     expect(key).to.equal('watch1')
-    //     expect(oldValue).to.be.null
-    //     expect(obj.data).to.equal('data1')
-    //     expect(obj.timestap).to.be.a('number')
-    //     done()
-    //   })
-
-    //   expect(storageMessage.events.length).to.equal(1)
-    //   storageMessage.trigger('watch1', 'data1')
-    // })
+      storageMessage.trigger('watch1', sendMsg);
+    });
   });
 });

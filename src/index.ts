@@ -1,25 +1,23 @@
 // ------ declare
 const CURRENT_STORAGE = 'currentStorage';
+const originalSetItem = window.localStorage.setItem;
 
 // storage event 在当前页面不触发，重写 window.localStorage.setItem
 function overrideSetItem() {
-  const originalSetItem = window.localStorage.setItem;
   window.localStorage.setItem = function(key, value) {
-    originalSetItem.apply(this, [key, value]);
-
     const oldValue = window.localStorage.getItem(key);
-    if (oldValue === `${value}`) {
-      return;
+    if (oldValue !== `${value}`) {
+      const setItemEvent = new StorageEvent(CURRENT_STORAGE, {
+        key,
+        oldValue,
+        newValue: value,
+        url: window.location.href,
+      });
+
+      window.dispatchEvent(setItemEvent);
     }
 
-    const setItemEvent = new StorageEvent(CURRENT_STORAGE, {
-      key,
-      oldValue,
-      newValue: value,
-      url: window.location.href,
-    });
-
-    window.dispatchEvent(setItemEvent);
+    originalSetItem.apply(this, [key, value]);
   };
 }
 
@@ -65,10 +63,6 @@ class StorageMessage {
         timestap: Date.now(),
       })
     );
-  }
-
-  storageChange(e: StorageEvent) {
-    this._notice(e);
   }
 }
 
